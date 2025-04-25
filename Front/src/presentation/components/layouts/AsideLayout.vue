@@ -1,22 +1,26 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import Gallery from '../../../assets/images/Learned.svg';
+import myNotes from '../../../assets/images/folder.svg';
+import deleted from '../../../assets/images/delete.svg';
+import exit from '../../../assets/images/exit.svg';
 </script>
 <template>
     <aside>
         <RouterLink to="/SocialBook/home/gallery" custom v-slot="{ navigate }">
             <a class="optionGallery" @click="navigate" role="link">
                 <div class="containerImages">
-                    <img src="/src/assets/images/Learned.svg" alt="icono animado" class="icon-svg" loading="lazy">
+                    <component :is="Gallery" alt="icono animado" class="icon-svg" loading="lazy"></component>
                 </div>
                 <div class="gallery">
-                    <p>gallery of Writings</p>
+                    <p>Gallery of Writings</p>
                 </div>
             </a>
         </RouterLink>
         <RouterLink to="/SocialBook/home/mynotes" custom v-slot="{ navigate }">
             <a class="optionNotes" @click="navigate" role="link">
                 <div class="containerImages">
-                    <img src="/src/assets/images/folder.svg" alt="icono animado" class="icon-svg" loading="lazy">
+                    <component :is="myNotes" alt="icono animado" class="icon-svg" loading="lazy"></component>
                 </div>
                 <div class="mynotes">
                     <p>My Notes</p>
@@ -26,7 +30,7 @@ import { RouterLink } from 'vue-router';
         <RouterLink to="/SocialBook/home/deleted" custom v-slot="{ navigate }">
             <a class="optionDeleted" @click="navigate" role="link">
                 <div class="containerImages">
-                    <img src="/src/assets/images/delete.svg" alt="icono animado" class="icon-svg" loading="lazy">
+                    <component :is="deleted" alt="icono animado" class="icon-svg" loading="lazy"></component>
                 </div>
                 <div class="deleted">
                     <p>Deleted Notes</p>
@@ -36,10 +40,10 @@ import { RouterLink } from 'vue-router';
         <RouterLink to="/SocialBook/welcome" custom v-slot="{ navigate }">
             <a class="optionExit" @click="navigate" role="link">
                 <div class="containerImages">
-                    <img src="/src/assets/images/exit.svg" alt="icono animado" class="icon-svg" loading="lazy">
+                    <component :is="exit" alt="icono animado" class="icon-svg" loading="lazy"></component>
                 </div>
                 <div class="exit">
-                    <p>log Out</p>
+                    <p>Log Out</p>
                 </div>
             </a>
         </RouterLink>

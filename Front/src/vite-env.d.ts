@@ -9,7 +9,9 @@ declare module '*.vue' {
 declare module 'https://animatedicons.co/scripts/embed-animated-icons.js';
 
 interface ImportMetaEnv {
-    readonly VITE_APY_TOKEN: string;
+    readonly VITE_APi_TOKEN: string;
+    readonly VITE_APi_URL: string;
+    readonly VITE_APi_URL_POKEMON: string;
 }
 
 interface ImportMeta {

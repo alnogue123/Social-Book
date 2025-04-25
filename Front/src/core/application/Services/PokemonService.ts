@@ -1,14 +1,11 @@
-import { PokemonRepositoryImpl } from "../../../infrastructure/repositories/PokeApiRepository";
-import type { Pokemon } from "../../../Types/PokemonType";
+import type { Pokemon } from "../../domain/models/pokermon";
+import type { PokemonRepository } from "../Repository/PokemonRepository";
 
 export class PokemonService{
-    private readonly pokemonRepository: PokemonRepositoryImpl;
-    constructor() {
-        this.pokemonRepository = new PokemonRepositoryImpl();
-    }
+    constructor(private readonly pokemonRepository: PokemonRepository){}
 
     async getAllPokemons() : Promise<Pokemon[]>{
-        const pokemons : Pokemon[] = await this.pokemonRepository.getAllPokemonWithUrl();
+        const pokemons : Pokemon[] = await this.pokemonRepository.getAll();
         return pokemons;
     }
 }

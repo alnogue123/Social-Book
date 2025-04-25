@@ -14,7 +14,7 @@ export const useAuthStore = defineStore('auth', () => {
     const isWelcome = computed(() => route.path.includes('welcome'));
     const isGallery = computed(() => route.path.includes('gallery'));
     const isMyNotes = computed(() => route.path.includes('mynotes'));
-    
+    const isDeleted = computed(() => route.path.includes('deleted'));
 
     const currentComponent = computed(() => {
         if (isLogin.value) return loginForm;
@@ -23,5 +23,5 @@ export const useAuthStore = defineStore('auth', () => {
         if (isMyNotes.value) return MyNotesLayout;
         return null;
     });
-    return { isLogin, isRegister, isWelcome, isGallery , isMyNotes , currentComponent };
+    return { isLogin, isRegister, isWelcome, isGallery , isMyNotes , isDeleted , currentComponent };
 })

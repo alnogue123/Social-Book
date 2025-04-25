@@ -2,10 +2,8 @@
 import { ref } from 'vue';
 import OverlayPanel from 'primevue/overlaypanel';
 import type { LanguageType } from '../../../Types/langtype';
-import { useLanguageStore } from '../../../core/application/stores/languagestore';
 
 const op = ref<InstanceType<typeof OverlayPanel> | null>(null);
-const langstore = useLanguageStore();
 
 const languages = ref<LanguageType[]>([
   { name: "Español", code: "es" },
@@ -13,9 +11,8 @@ const languages = ref<LanguageType[]>([
   { name: "Francés", code: "fr" },
 ]);
 
-const changeLanguage = (code: LanguageType['code']): void => {
+const changeLanguage = (): void => {
   alert('funcion no soportada todavia')
-  //langstore.changeLanguage(code);
   if (op.value) {
     op.value.hide();
   }
@@ -33,7 +30,7 @@ const toggleOverlay = (event: MouseEvent) => {
     <i class="pi pi-globe world" @click="toggleOverlay"></i>
     <OverlayPanel ref="op">
       <ul class="language-list">
-        <li v-for="lang in languages" :key="lang.code" @click="changeLanguage(lang.code)">
+        <li v-for="lang in languages" :key="lang.code" @click="changeLanguage()">
           {{ lang.name }}
         </li>
       </ul>

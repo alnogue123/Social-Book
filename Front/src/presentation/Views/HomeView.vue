@@ -3,8 +3,8 @@
     import AsideLayout from '../components/layouts/AsideLayout.vue';
     import GalleryNotesLayout from '../components/layouts/GalleryNotesLayout.vue';
     import MyNotesLayout from '../components/layouts/MyNotesLayout.vue';
+    import DeletedNoteLayout from '../components/layouts/DeletedNoteLayout.vue';
     import { useAuthStore } from '../../core/application/stores/authstore';
-
     const authStore = useAuthStore();
 
 </script>
@@ -15,6 +15,7 @@
             <AsideLayout class="aside"/>
             <GalleryNotesLayout v-if="authStore.isGallery"/>
             <MyNotesLayout v-if="authStore.isMyNotes"/>
+            <DeletedNoteLayout v-if="authStore.isDeleted"/>
         </div>
     </div>
 </template>

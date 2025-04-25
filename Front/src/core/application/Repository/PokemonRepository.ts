@@ -1,7 +1,7 @@
-import type { PokemonReference } from "../../../Types/PokemonReference"
-import type { Pokemon } from "../../../Types/PokemonType"
+import type { Pokemon } from "../../domain/models/pokermon"
+import type { PokemonReference } from "../../../infrastructure/dto/PokemonReferenceDto"
 
 export interface PokemonRepository{
     getAllPokemons() : Promise<PokemonReference[]>
-    getAllPokemonWithUrl() : Promise<Pokemon[]>
+    getAll() : Promise<Pokemon[]>
 }

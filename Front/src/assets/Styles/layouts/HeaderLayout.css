@@ -9,10 +9,6 @@
     border-bottom: 2px black solid;
 }
 
-body.dark-mode .header {
-    border-bottom: 2px white solid;
-}
-
 .controls {
     position: relative;
     height: 100%;
@@ -67,10 +63,6 @@ img{
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-body.dark-mode .fa-user {
-    color: black;
 }
 
 .fa-user {

@@ -4,16 +4,19 @@ aside,
 .deleted,
 .exit {
     width: 100%;
-}
-
-body.dark-mode aside {
-    border-right: 2px white solid;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .optionGallery,
 .optionNotes,
 .optionDeleted,
 .optionExit {
+    margin-top: 50px;
+    height: 100%;
+    width: 100%;
     display: grid;
     grid-template-columns: 30% 70%;
     color: black;
@@ -36,36 +39,23 @@ body.dark-mode aside {
 .optionNotes:hover,
 .optionDeleted:hover,
 .optionExit:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.09);
     transform: scale(1.01);
-}
-
-body.dark-mode .optionGallery,
-body.dark-mode .optionNotes,
-body.dark-mode .optionDeleted,
-body.dark-mode .optionExit {
-    color: white;
-}
-
-body.dark-mode .optionGallery:hover,
-body.dark-mode .optionNotes:hover,
-body.dark-mode .optionDeleted:hover,
-body.dark-mode .optionExit:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    transform: scale(1.01);
-    color: white;
 }
 
 img {
-    height: 70%;
-    width: 70%;
+    height: 100%;
+    width: 100%;
 }
 
 .icon-svg {
-    width: 40%;
-    height: 40%;
+    width: 70%;
+    height: 60%;
     object-fit: fill;
     margin-bottom: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 aside {
