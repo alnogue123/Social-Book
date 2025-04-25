@@ -29,24 +29,33 @@
 }
 
 img{
-    position: relative;
-    width: 10%;
+    grid-column: 1;
+    grid-row: 1;
+    width: fit-content;
     height: 90px;
-    right: 20%;
 }
 
 .title {
+    grid-column: 2;
+    grid-row: 1;
     font-size: 3rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
     line-height: 1.1;
     text-transform: uppercase;
+    width: fit-content;
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    left: 50%;
     transform: translateX(-50%);
+}
+
+.containertitle{
+    width: 41rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .containerUser {

@@ -10,8 +10,10 @@ import languageButton from '../ui/languageButton.vue';
             </div>
             <p class="name">John Doe</p>
         </div>
-        <p class="title">Social Book</p>
-        <img src="/src/assets/images/Book.png" alt="">
+        <div class="containertitle">
+            <img src="/src/assets/images/Book.png" alt="">
+            <p class="title">Social Book</p>
+        </div>
         <div class="controls">
             <languageButton class="languageButton" />
             <DarkModeButton class="DarkModeButton " />
