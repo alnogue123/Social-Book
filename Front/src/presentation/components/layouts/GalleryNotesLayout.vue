@@ -3,7 +3,13 @@ import { UseNotesStore } from '../../../core/application/stores/NotesStores';
 import NoteDialog from '../ui/NoteDialog.vue';
 import CreateNotesButton from '../ui/CreateNotesButton.vue';
 import tag from '../../../assets/images/bookmark.svg';
+import { onMounted } from 'vue';
 const notestore = UseNotesStore();
+
+onMounted(() =>{
+    notestore.getAllNotes();
+})
+
 </script>
 <template>
     <main>

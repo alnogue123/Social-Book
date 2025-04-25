@@ -16,7 +16,7 @@ export class SocialBookRepository implements GalleryRepository {
 
     async getAllNotes(): Promise<Note[]> {
         try {
-            const response: AxiosResponse<Note[],unknown> = await axios.get(this.url, this.config);
+            const response: AxiosResponse<Note[]> = await axios.get(this.url, this.config);
             return response.data.map((noteDTO) => mapNoteDTOToNote(noteDTO));
         }catch (error: unknown) {
             if (axios.isAxiosError(error)) {
