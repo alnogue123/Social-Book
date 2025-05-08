@@ -22,13 +22,11 @@ onMounted(() =>{
         <div class="notes">
             <div class="note card" v-for="note in notestore.notes" :key="note.id" @click="notestore.choseNote(note.id)">
                 <div class="card-body">
-                    <h5 class="card-title">{{ note.title }}</h5>
-                    <p class="card-text">
-                        {{ note.body }}
-                    </p>
+                    <h5 class="card-title" v-html="note.title"></h5>
+                    <p class="card-text" v-html="note.body"></p>
                 </div>
             </div>
-            <CreateNotesButton />
+            <CreateNotesButton/>
         </div>
     </main>
     <NoteDialog />

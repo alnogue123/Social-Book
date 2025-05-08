@@ -37,8 +37,8 @@ function createComment() {
         <div class="container">
             <div class="note card">
                 <div class="card-body">
-                    <h5 class="card-title">{{ noteSelected?.title }}</h5>
-                    <p class="card-text">{{ noteSelected?.body }}</p>
+                    <h5 class="card-title" v-html="noteSelected?.title"></h5>
+                    <p class="card-text" v-html=" noteSelected?.body"></p>
                 </div>
             </div>
             <div class="comments card">
