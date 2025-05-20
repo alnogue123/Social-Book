@@ -15,5 +15,5 @@
     "strictNullChecks": true,
     "noImplicitReturns": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "vite-env.d.ts", "main.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "vite-env.d.ts", "main.ts", "src/core/application/useCases/NoteUseCase.ts", "src/core/domain/Ports/GalleryNotesPort.ts"]
 }
