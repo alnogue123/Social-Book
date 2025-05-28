@@ -1,5 +1,5 @@
-import type { IResponse } from "../../../../common/interfaces/response.interface";
-import type { UpdateHandler } from "../../domain/commands/update.handler";
+import type { IResponse } from "../../../../../common/interfaces/response.interface";
+import type { UpdateHandler } from "../../../domain/commands/update.handler";
 import type { AppUpdateCommand } from "./appUpdate.command";
 
 export class AppUpdateHandler {

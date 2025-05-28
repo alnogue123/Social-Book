@@ -60,10 +60,10 @@ export class NoteAdapter implements ICrudPort {
             throw new ApiError("Error inesperado", 500, error);
         }
     }
-    async create(note: Domain): Promise<Domain> {
+    async create(comment: Domain): Promise<Domain> {
         try {
             const response: AxiosResponse<Domain, unknown> = 
-            await axios.post(this.url,note, this.config);
+            await axios.post(this.url,comment, this.config);
             return response.data;
         } catch (error: unknown) {
             if (axios.isAxiosError(error)) {
@@ -77,9 +77,9 @@ export class NoteAdapter implements ICrudPort {
         }
     }
     
-    async update(note: Domain): Promise<Domain> {
+    async update(comment: Domain): Promise<Domain> {
         try {
-            const response: AxiosResponse<Domain, unknown> = await axios.patch(`${this.url}/${note.id}`, note, this.config);
+            const response: AxiosResponse<Domain, unknown> = await axios.patch(`${this.url}/${comment.commentID}`, comment, this.config);
             return response.data;
         } catch (error: unknown) {
             if (axios.isAxiosError(error)) {

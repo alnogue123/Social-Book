@@ -1,5 +1,5 @@
 import { ref, type Ref } from 'vue';
-import type { ToolbarStructure } from '../../../Types/ToolbarTypes';
+import type { ToolbarStructure } from '../../types/ToolbarTypes';
 
 export function useQuillConfig() {
     const toolbarConfig: Ref<ToolbarStructure> = ref([

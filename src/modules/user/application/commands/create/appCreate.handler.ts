@@ -1,5 +1,5 @@
-import type { IResponse } from "../../../../common/interfaces/response.interface";
-import type { CreateHandler } from "../../domain/commands/create.handler";
+import type { IResponse } from "../../../../../common/interfaces/response.interface";
+import type { CreateHandler } from "../../../domain/commands/create.handler";
 import type { AppCreateCommand } from "./appCreate.command";
 
 export class AppCreateHandler {

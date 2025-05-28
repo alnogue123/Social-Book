@@ -1,5 +1,5 @@
-import type { IResponse } from "../../../../common/interfaces/response.interface";
-import type { DeleteHandler } from "../../domain/commands/delete.handler";
+import type { IResponse } from "../../../../../common/interfaces/response.interface";
+import type { DeleteHandler } from "../../../domain/commands/delete.handler";
 import type { AppDeleteCommand } from "./appDelete.command";
 
 export class AppDeleteHandler {

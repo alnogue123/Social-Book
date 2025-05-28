@@ -2,7 +2,8 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import type { Domain } from "../../domain/entities/UserEntity";
 import { container } from "../di/container";
-import type { AppCreateCommand } from "../commands/appCreate.command";
+import type { AppCreateCommand } from "../commands/create/appCreate.command";
+
 
 export const useUserStore = defineStore("notes", () => {
     const users = ref<Domain[]>([]);

@@ -1,4 +1,4 @@
-import { NoteAdapter } from "../../insfraestructure/adapter/NoteAdapter";
+import { NoteAdapter } from "../../insfraestructure/adapter/commentAdapter";
 
 import { CreateHandler } from "../../domain/commands/create.handler";
 import { AppCreateHandler } from "../commands/appCreate.handler";
