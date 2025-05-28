@@ -1,20 +1,26 @@
-aside,
-.gallery,
-.mynotes,
-.deleted,
-.exit {
+aside {
+    border-right: 2px black solid;
+    height: 100%;
+    display: grid; 
+    grid-template-rows: repeat(4, 23%);
+  }
+  
+  .gallery,
+  .mynotes,
+  .deleted,
+  .exit {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.optionGallery,
-.optionNotes,
-.optionDeleted,
-.optionExit {
-    margin-top: 50px;
+  }
+  
+  .optionGallery,
+  .optionNotes,
+  .optionDeleted,
+  .optionExit {
+    margin-top: 10px;
     height: 100%;
     width: 100%;
     display: grid;
@@ -24,31 +30,31 @@ aside,
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     text-decoration: none;
-}
-
-.containerImages {
+  }
+  
+  .containerImages {
     grid-column: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-}
-
-.optionGallery:hover,
-.optionNotes:hover,
-.optionDeleted:hover,
-.optionExit:hover {
+  }
+  
+  .optionGallery:hover,
+  .optionNotes:hover,
+  .optionDeleted:hover,
+  .optionExit:hover {
     background-color: rgba(0, 0, 0, 0.09);
     transform: scale(1.01);
-}
-
-img {
+  }
+  
+  img {
     height: 100%;
     width: 100%;
-}
-
-.icon-svg {
+  }
+  
+  .icon-svg {
     width: 70%;
     height: 60%;
     object-fit: fill;
@@ -56,23 +62,113 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-aside {
-    border-right: 2px black solid;
-    height: 100%;
-    display: grid;
-    grid-template-rows: repeat(4, 23%);
-}
-
-.gallery,
-.mynotes,
-.deleted,
-.exit {
+  }
+  
+  .gallery,
+  .mynotes,
+  .deleted,
+  .exit {
     display: flex;
     justify-content: baseline;
     align-items: center;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 1.5rem;
     grid-column: 2;
-}
+  }
+  
+  .menu-toggle-button,
+  .menu-overlay {
+    display: none;
+  }
+  
+  body.no-scroll {
+    overflow: hidden;
+  }
+  
+  @media (max-width: 1100px) {
+    aside {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50vw; 
+      height: 100%; 
+      background-color: white;
+      border-right: none; 
+      transform: translateX(-100%); 
+      transition: transform 0.3s ease-in-out;
+      z-index: 1001; 
+      display: flex; 
+      flex-direction: column;
+      padding-top: 20px; 
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); 
+    }
+  
+    aside.is-open {
+      transform: translateX(0); 
+    }
+  
+    .menu-toggle-button {
+      display: block; 
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #007bff; 
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  
+    
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); 
+      z-index: 1000; 
+      transition: opacity 0.3s ease-in-out;
+      opacity: 0; 
+    }
+  
+    .menu-overlay.is-active {
+      display: block;
+      opacity: 1; 
+    }
+  
+    .menu-items-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 80%;
+    }
+  
+    .optionGallery,
+    .optionNotes,
+    .optionDeleted,
+    .optionExit {
+      margin-top: 20px; 
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .gallery,
+    .mynotes,
+    .deleted,
+    .exit {
+      font-size: 1.1rem; 
+      justify-content: flex-start; 
+      padding-left: 10px;
+      
+    }
+  
+    .icon-svg {
+      margin-right: 10px; 
+      margin-bottom: 0;
+    }
+  }

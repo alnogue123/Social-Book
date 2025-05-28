@@ -1,3 +1,5 @@
+@import url("./../../../common/styles/shared-note-styles.css");
+
 .emptynotes {
     height: 100%;
     width: 100%;
@@ -11,18 +13,9 @@
     width: 100%;
 }
 
-main{
+main {
     overflow-y: auto;
     width: 100%;
     grid-column: 2;
     max-width: 100%;
 }
-
-.notes {
-    padding: 2rem 10rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    overflow-y: auto;
-}
-

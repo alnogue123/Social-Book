@@ -39,3 +39,17 @@
   background: #f0f0f0;
   color: black;
 }
+
+@media screen and (max-width: 1100px) {
+  .world {
+    margin-right: 5%;
+  }
+
+  .language-list {
+    margin-top: 10px;
+  }
+
+ .language-list li {
+    padding: 6px;
+  }
+}
