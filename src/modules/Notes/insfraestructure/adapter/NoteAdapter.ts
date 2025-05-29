@@ -10,7 +10,6 @@ export class NoteAdapter implements ICrudPort {
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
-        timeout: 5000
     };
 
     async getAll(): Promise<Domain[]> {

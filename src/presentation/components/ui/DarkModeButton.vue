@@ -12,11 +12,8 @@ watch(() => temeStore.dark, (newVal) => {
 </script>
 
 <template>
-  <div class="container">
-    <i :class="['pi', temeStore.dark ? 'pi-sun' : 'pi-moon']" @click="temeStore.changeTheme()"
-      style="font-size: 3rem;"></i>
-  </div>
+  <i :class="['pi', temeStore.dark ? 'pi-sun' : 'pi-moon']" @click="temeStore.changeTheme()"
+    style="font-size: 3rem;"></i>
 </template>
 
-<style scoped src="/src/assets/Styles/Components/darkMode.css">
-</style>
+<style scoped src="/src/assets/Styles/Components/darkMode.css"></style>

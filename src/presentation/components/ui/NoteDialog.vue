@@ -4,8 +4,6 @@ import { computed, onMounted, ref } from 'vue';
 import { observeDarkModeDialog } from '../../composables/useDarkModeObserver';
 import type { Comment } from '../../../types/comment';
 import { useNotesStore } from '../../../modules/Notes/application/stores/Notestore';
-
-import { storeToRefs } from 'pinia';
 import { useCommentStore } from '../../../modules/comments/application/stores/comment.store';
 
 const notestore = useNotesStore();
@@ -17,11 +15,6 @@ const visible = computed({
     get: () => notestore.noteVisible,
     set: (val: boolean) => notestore.noteVisible = val
 });
-
-const { titleHTML, bodyHTML } = storeToRefs(notestore);
-
-const titleEditor = ref<HTMLElement>();
-const contentEditor = ref<HTMLElement>();
 
 onMounted(async () => {
     observeDarkModeDialog();
@@ -49,8 +42,8 @@ function createComment() {
         <div class="container">
             <div class="note card">
                 <div class="card-body">
-                    <div ref="titleEditor" class="card-title quill-editor" v-html="titleHTML"></div>
-                    <div ref="contentEditor" class="card-text quill-editor"v-html="bodyHTML"></div>
+                    <div ref="titleEditor" class="card-title quill-editor" v-html="noteSelected ? notestore.processNotes(noteSelected).title : ''"></div>
+                    <div ref="contentEditor" class="card-text quill-editor"v-html="noteSelected ? notestore.processNotes(noteSelected).body: ''"></div>
                 </div>
             </div>
             <div class="comments card">

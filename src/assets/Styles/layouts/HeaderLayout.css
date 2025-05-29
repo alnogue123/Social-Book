@@ -10,22 +10,12 @@
 }
 
 .controls {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
     height: 100%;
-    width: 2%;
-}
-
-.languageButton {
-    position: absolute;
-    top: 25%;
-    left: 0;
-}
-
-.DarkModeButton {
-    position: absolute;
-    top: 24%;
-    left: 50px;
-    margin-left: 2%;
 }
 
 img{
@@ -111,4 +101,14 @@ img{
         height: 70px;
         margin-right: 20%;
     }
+
+    .languageButton{
+        top: 35%;
+        margin-right: 10px;
+    }
+
+   .DarkModeButton{
+        top: 0;
+        margin-left: 10px;
+   }
 }

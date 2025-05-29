@@ -13,32 +13,18 @@ export const useNotesStore = defineStore("notes", () => {
     const noteVisible = ref<boolean>(false);
     const modalStore = useModalStore();
 
-    const titleHTML = computed(() => {
-        if (!noteSelected.value?.title) return '';
-        const convertedTitle = convertirDeltaDeStringAHtml(noteSelected.value.title);
-        return convertedTitle || noteSelected.value.title;
-    });
-
-    const bodyHTML = computed(() => {
-        if (!noteSelected.value?.body) return '';
-        const convertedBody = convertirDeltaDeStringAHtml(noteSelected.value.body);
-        return convertedBody || noteSelected.value.body;
-    });
-
     async function getAllNotes(): Promise<void> {
         const response = await container.getAllQuery.handler();
         if (!response.isSuccess || !response.data) {
             console.error("Error fetching notes:", response.message);
-            return;
+            return ;
         }
         notes.value = response.data as Domain[];
     }
 
-    function choseNote(idNote: number): void {
-        const found = notes.value.find(note => note.id === idNote);
-        console.log(found, idNote);
-        if (found) {
-            noteSelected.value = found as Domain;
+    function choseNote(note : Domain): void {
+        if (note) {
+            noteSelected.value = note;
             noteVisible.value = true;
         }
     }
@@ -61,16 +47,23 @@ export const useNotesStore = defineStore("notes", () => {
         notes.value.filter(note => !note.isPublic)
     );
 
+    function processNotes(note: Domain) : Domain{
+        return {
+            ...note,
+            title: convertirDeltaDeStringAHtml(note.title) || note.title,
+            body: convertirDeltaDeStringAHtml(note.body) || note.body
+        }
+    }
+
     return {
         notes,
         noteSelected,
         noteVisible,
         publicNotes,
         privateNotes,
-        titleHTML,
-        bodyHTML,
         getAllNotes,
         choseNote,
-        createNote
+        createNote,
+        processNotes
     };
 });

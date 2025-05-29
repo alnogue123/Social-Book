@@ -3,27 +3,17 @@ import { ref, computed, onMounted } from 'vue';
 import NoteDialog from '../ui/NoteDialog.vue';
 import CreateNotesButton from '../ui/CreateNotesButton.vue';
 import { useNotesStore } from '../../../modules/Notes/application/stores/Notestore';
-import { convertirDeltaDeStringAHtml } from '../../../common/composables/useReadDeltaObserver';
+import type { Note } from '../../dto/NoteDto';
 
 const notestore = useNotesStore();
 const loading = ref(true);
 const isEmpty = computed(() => !loading.value && notestore.privateNotes.length === 0);
+const privateNotes = ref<Note[]>([]);
 
-onMounted(() => {
-    notestore.getAllNotes().then(() => {
-        loading.value = false;
-    });
+onMounted(async () => {
+    await notestore.getAllNotes();
+    privateNotes.value = notestore.privateNotes;
 })
-
-const processedNotes = computed(() => {
-    return notestore.privateNotes.map(note => {
-        return {
-            ...note,
-            processedTitle: convertirDeltaDeStringAHtml(note.title) || note.title,
-            processedBody: convertirDeltaDeStringAHtml(note.body) || note.body
-        }
-    });
-});
 </script>
 <template>
     <main class="container">
@@ -31,16 +21,14 @@ const processedNotes = computed(() => {
             <h1>What are we going to be inspired by today?</h1>
         </div>
         <div class="notes" v-if="!isEmpty">
-            <div v-for="note in notestore.privateNotes" :key="note.id" class="note card"
-                @click="notestore.choseNote(note.id)">
+            <div v-for="note in privateNotes" :key="note.id" class="note card"
+                @click="notestore.choseNote(note)">
                 <div class="card-body">
-                    <h5 class="card-title" 
-                    v-html="processedNotes.find(n => n.id === note.id)?.processedTitle"></h5>
-                    <p class="card-text" 
-                    v-html="processedNotes.find(n => n.id === note.id)?.processedBody"></p>
+                    <h5 class="card-title" v-html="notestore.processNotes(note).title"></h5>
+                    <p class="card-text" v-html="notestore.processNotes(note).body"></p>
                 </div>
             </div>
-        </div>\
+        </div>
         <CreateNotesButton />
     </main>
     <NoteDialog />

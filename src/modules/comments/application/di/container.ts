@@ -1,4 +1,4 @@
-import { NoteAdapter } from "../../insfraestructure/adapter/commentAdapter";
+import { CommentAdapter } from "../../insfraestructure/adapter/commentAdapter";
 
 import { CreateHandler } from "../../domain/commands/create.handler";
 import { AppCreateHandler } from "../commands/appCreate.handler";
@@ -15,7 +15,7 @@ import { AppUpdateHandler } from "../commands/appUpdate.handler";
 import { DeleteHandler } from "../../domain/commands/delete.handler";
 import { AppDeleteHandler } from "../commands/appDelete.hamdler";
 
-const adapter = new NoteAdapter();
+const adapter = new CommentAdapter();
 
 export const container = {
     createCommand: new AppCreateHandler(new CreateHandler(adapter)),

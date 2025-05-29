@@ -3,7 +3,7 @@ import type { Domain } from "../../domain/entities/commentEntity";
 import type { ICrudPort } from "../../domain/ports/comment.port";
 import { ApiError } from "../../application/Errors/ApiError";
 
-export class NoteAdapter implements ICrudPort {
+export class CommentAdapter implements ICrudPort {
     private readonly url: string = import.meta.env.VITE_APi_URL;
     private readonly config: AxiosRequestConfig = {
         headers: {

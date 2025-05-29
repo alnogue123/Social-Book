@@ -4,4 +4,6 @@ export interface Note{
     title: string
     body: string
     isPublic: boolean
+    CreatedAt: Date
+    UpdatedAt: Date
 }
